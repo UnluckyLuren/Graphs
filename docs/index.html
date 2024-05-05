@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Graphs</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js"></script>
+	<script src="./index.js"></script>
+
+	<!-- Librerias Grafo Music -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/buckets/1.90.0/buckets.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/Tonejs/Tone.js@r10/build/Tone.min.js"></script>
+	<script src="https://cdn.rawgit.com/Tonejs/MidiConvert/c1715ce9/build/MidiConvert.js"></script>
+	<script src="https://cdn.rawgit.com/tambien/StartAudioContext/8da8637e/StartAudioContext.js"></script>
+	<script src="https://cdn.rawgit.com/teropa/Piano/fix-tone-extern/build/Piano.js"></script>
+	<!-- <script src="https://d3js.org/d3.v4.min.js" id="libreria"></script> -->
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+
+	<link rel="icon" href="./assets/imgs/iconSideMenu.png">
+	<link rel="stylesheet" href="./assets/css/styles.css">
+	<link rel="stylesheet" href="./assets/css/extra-styles.css">
+
+<script defer src="main.js"></script></head>
+
+<body id="Body-scroll">
+
+	<!-- Background Inicial -->
+	<div class="content" id="initCont">
+		<img id="logo"
+			src="https://bytebucket.org/vjmz/beet/raw/507137cf10d7a6a02017a2bcd42f3d06b13a411b/brands_resources/trusted_listings/img/logo-white.png?token=3c844b3c4a8b30536c7cdac8a8210265acf91bb3"
+			alt="">
+		<canvas> Your Browser Don't Support Canvas, Please Download Chrome`</canvas>
+		<div class="centered">
+			<h2>Matemáticas Discretas</h2>
+			<h1>GENEALOGÍA</h1>
+			<h3>Presiona para empezar</h3>
+			<img src="./assets/imgs/start.png" class="imgDef" id="startEdit" alt="Start">
+		</div>
+
+	</div>
+
+	<!-- Background -->
+
+	<div id="background" class="ocult"><canvas id="stars"></canvas></div>
+
+	<!-- Side menu -->
+
+	<div class="menu ocult" id="menu">
+
+		<aside class="sidebar">
+			<div id="leftside-navigation" class="nano">
+				<ul class="nano-content">
+					<li class="menuTop">
+						<img src="./assets/imgs/iconPrin.png">
+						<h2 class="textMenuTop">GRAFOS</h2> </img>
+					</li>
+					<li id="vistaInit" onclick="estilosInit(),stopAll()">
+						<a href="#"><i class="fa fa-dashboard"></i><span>Vista</span></a>
+					</li>
+					<li class="sub-menu">
+						<a href="javascript:void(0);"><i class="fa fa-cogs"></i><span>Parametros</span><i
+								class="arrow fa fa-angle-right pull-right"></i></a>
+						<ul>
+
+							<li class="subSeccion"><a href="#"> Valores </a>
+							</li>
+							<li class="subSeccion"><a href="#"> Jerarquía </a>
+							</li>
+
+						</ul>
+					</li>
+					<li class="sub-menu">
+						<a href="javascript:void(0);"><i class="fa fa-table"></i><span>Extras</span><i
+								class="arrow fa fa-angle-right pull-right"></i></a>
+						<ul>
+							<li class="subSeccion" onclick="ejecGrafosMusic()"><a href="#">Grafos musicales</a>
+							</li>
+						</ul>
+					</li>
+					<li class="sub-menu">
+						<a href="javascript:void(0);"><i class="fa fa fa-tasks"></i><span>Herramientas</span><i
+								class="arrow fa fa-angle-right pull-right"></i></a>
+						<ul>
+							<li class="subSeccion"><a href="#">Reiniciar</a>
+							</li>
+							<li class="subSeccion"><a href="#">No se que poner</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</aside>
+
+
+	</div>
+
+	<!-- Objetos edicion -->
+
+	<div class="content ocult editCont" id="editCont">
+		<div class="centered" id="contGeGrafs">
+			<div id="containerEditSVG"></div>
+			<div class="instEdit">
+				<h3>Eliminar un vertice: SELECCIONALO+CRTL+BACKSPACE+BACKSPACE</h3>
+				<h3>Eliminar una arista: SELECCIONALA+CRTL+BACKSPACE+BACKSPACE</h3>
+				<h3>Mover un Vertice: CRTL+RATON</h3>
+			</div>
+		</div>
+
+		<div class="grafMusic ocult centered" id="grafMusic">
+			<div class="starting">
+				<button id="start">Start</button>
+			  </div>
+			  <div class="loading hidden">Loading...</div>
+			  <div class="visualization hidden">
+			  </div>
+			  <nav class="hidden">
+				<button id="g1" class="active">Arpegio No. 1</button>
+				<button id="g2">Arpegio No. 2</button>
+				<button id="g3">Arpegio No. 3</button>
+			  </nav>	
+		</div>
+	</div>
+	
+
+	<!-- Scripts -->
+
+	<script src="./assets/js/grafos.js"></script>
+	<script src="./assets/js/edicion-grafos.js"></script>
+	<script src="./assets/js/BG.js"></script>
+	<script src="./assets/js/grafosMusic.js" ></script>
+
+</body>
+
+</html>

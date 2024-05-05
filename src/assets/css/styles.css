@@ -1,0 +1,374 @@
+/* Variables del Root Generales */
+/* Buy Variables css */
+/* Catalogo Variables css */
+/* Login Regist Variables */
+/* Variables Pago */
+/* Break Points */
+/* Z index */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css");
+
+:root {
+  --z-back:-10;
+  --z-Normal:1;
+  --z-Superior:10;
+  --z-Fixed:100;
+  --z-container:1000;
+}
+
+/* Variables Root */
+/* Mixin BeakPoints */
+/* Mixin Heigth */
+/* Variables del Root Generales */
+/* Buy Variables css */
+/* Catalogo Variables css */
+/* Login Regist Variables */
+/* Variables Pago */
+/* Break Points */
+/* Z index */
+:root {
+  --z-back:-10;
+  --z-Normal:1;
+  --z-Superior:10;
+  --z-Fixed:100;
+  --z-container:1000;
+}
+
+/* Variables Root */
+/* Mixin BeakPoints */
+/* Mixin Heigth */
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+:root {
+  --Color-Menu:rgba(55, 55, 59, 0.986);
+  --Color-hover:#4e4c5c;
+  --Text-bck-shadow:2px 2px 2px black, 2px -2px 2px black, -2px 2px 2px black, -2px -2px 2px black;
+  --Color-User-page:rgba(46, 46, 46, 0.897);
+  --Color-BG-sections:#626262;
+  --Color-text-section-examples: #23212e ;
+  --color-page:#f0f0f0;
+  --shadow:0.5em 0.5em 0.5em rgba(0, 0, 0, 0.589) ;
+  --shadow-content-promove: 0.5em 0.5em 0.5em rgba(218, 218, 218, 0.589) ;
+  --Border-bootom-white:2px solid rgba(228, 228, 228, 0.924) ;
+  --Color-BG-Public-User:#979797;
+  /* Buy Variables css */
+  --Col-Background: #333 ;
+  --Shadow-CTG: 0 4px 3px rgba(0, 0, 0, 0.5) ;
+  /* Catalogo Variables css */
+  --Separation-aside: 5px solid #f1f1f1 ;
+  /* Login Regist Variables */
+  --color-formulario: rgba(51, 51, 51, 0.61);
+  --color-lineas: rgba(255, 255, 255, 0.959);
+  /* Variables Pago */
+  --color-fondo: repeating-linear-gradient(skyblue 0, skyblue 5px, orange 5px, orange 10px);
+  --color-sombra: 0 10px 10px 0 rgba(90, 116, 148, 0.3);
+  --sombras: rgba(0, 0, 0, 0.3);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background:transparent;
+  color: white;
+  overflow: hidden;
+  font-family: "Open Sans", sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+#logo{
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+  left: 20px;
+  width: 120px;
+  height: auto;
+}
+h1{
+font-size: 32px;
+margin-top: 10px;
+margin-bottom: 40px;
+}
+h2{
+font-size: 14px;
+margin: 0;
+font-weight: 300;
+}
+h3{
+font-size: 14px;
+font-weight: 500;
+color: #4d677a;
+}
+.content{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-content: center;
+background:linear-gradient(180deg, #4864a9 0, #1f3259 50%, #000015 100%);
+width: 100%;
+height: 100%;
+}
+.centered{
+z-index: 1;
+position: relative;
+text-align: center;
+margin: 0;
+}
+.centered h1{
+  font-size: 10em;
+}
+.centered h2 {
+  font-size: 2em;
+} 
+
+.centered h3 {
+  font-size: 1.5em;
+}
+canvas{
+background: transparent;
+position: absolute;
+z-index: 0;
+}
+.circle{
+margin: 0 auto;
+height: 80px;
+width: 80px;
+border-radius: 50%;
+background-color: white;
+box-shadow: 0px 3px 15px 0px rgba(80,80,80,0.5);
+}
+.material-icons{
+font-size: 3em;
+color: #777;
+line-height: 80px;
+}
+.ocult {
+  opacity: 0;
+  transition: all 0.2s 0.2s;
+  pointer-events: none;
+  position: absolute;
+}
+
+/* Estilos especificos */
+
+/* Estilos pagina inicial */
+.imgDef {
+  width: 5em;
+  height: 5em;
+  margin: 2em 0 0 0;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.imgDef:hover {
+  padding: 0.2em;
+  background-color: white;
+  transition: all 0.1s 0.1s;
+}
+
+/* Estilos edicion */
+
+svg {
+  background-color: var(--sombras);
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+svg:not(.active):not(.ctrl) {
+  cursor: crosshair;
+}
+
+path.link {
+  fill: none;
+  stroke: #888;
+  stroke-width: 3px;
+  cursor: default;
+}
+
+svg:not(.active):not(.ctrl) path.link {
+  cursor: pointer;
+}
+
+path.link.selected {
+  stroke-dasharray: 10,2;
+}
+
+path.link.dragline {
+  pointer-events: none;
+}
+
+path.link.hidden {
+  stroke-width: 0;
+}
+
+circle.node {
+  stroke-width: 0px;
+  cursor: pointer;
+  fill:#fff;
+}
+
+/*circle.node.reflexive {
+  stroke: #000 !important;
+  stroke-width: 2.5px;
+}*/
+
+text {
+  font: 14px sans-serif;
+  pointer-events: none;
+}
+
+text.id {
+  text-anchor: middle;
+  font-weight: bold;
+}
+
+/* Side menu */
+
+/* Menu */
+
+
+.menu {
+  margin: 0;
+  padding: 0;
+  transition: all 0.2s 0.2s;
+}
+
+/* Background */
+
+
+#background, #stars {
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0;
+left: 0;
+z-index: -9999; 
+}
+
+#background {
+background: radial-gradient(at bottom right, #32577a 25%, #05363b 55%, #000000 90%); 
+}
+
+/* Side bar */
+
+.sidebar-toggle {
+margin-left: -240px;
+}
+
+.sidebar {
+width: 240px;
+height: 100vh;
+background: #293949;
+position: fixed;
+top: 0;
+left: 0;
+padding-top: 2em;
+transition: all 0.3s ease-in-out;
+z-index: 100;
+}
+.sidebar #leftside-navigation ul, .sidebar #leftside-navigation ul ul {
+margin: -2px 0 0;
+padding: 0;
+}
+.sidebar #leftside-navigation ul li {
+list-style-type: none;
+border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.sidebar #leftside-navigation ul li.active > a {
+color: #1abc9c;
+}
+.sidebar #leftside-navigation ul li.active ul {
+display: block;
+}
+.sidebar #leftside-navigation ul li a {
+color: #aeb2b7;
+text-decoration: none;
+display: block;
+padding: 18px 0 18px 25px;
+font-size: 12px;
+outline: 0;
+transition: all 200ms ease-in;
+}
+.sidebar #leftside-navigation ul li a:hover {
+color: #1abc9c;
+}
+.sidebar #leftside-navigation ul li a span {
+display: inline-block;
+}
+.sidebar #leftside-navigation ul li a i {
+width: 20px;
+}
+.sidebar #leftside-navigation ul li a i .fa-angle-left, .sidebar #leftside-navigation ul li a i .fa-angle-right {
+padding-top: 3px;
+}
+.sidebar #leftside-navigation ul ul {
+display: none;
+}
+.sidebar #leftside-navigation ul ul li {
+background: #23313f;
+margin-bottom: 0;
+margin-left: 0;
+margin-right: 0;
+border-bottom: none;
+}
+.sidebar #leftside-navigation ul ul li a {
+font-size: 12px;
+padding-top: 13px;
+padding-bottom: 13px;
+color: #aeb2b7;
+}
+
+.menuTop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding-bottom: 2em;
+}
+
+.menuTop img {
+  width: 3em;
+  height: 3em;
+}
+
+.textMenuTop {
+  margin: 0 0 0 1em;
+  color: white;
+  font-size: medium;
+}
+
+/* Estilos aparte edicion */
+
+.editCont {
+  transition: all 0.2s 0.2s;
+}
+
+.edit {
+  background-color: rgba(255, 255, 255, 0.177);
+}
+
+.instEdit {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.instEdit h3 {
+  font-size: 1em;
+}
+
