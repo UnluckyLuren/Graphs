@@ -17,6 +17,7 @@ const contGeGrafs = document.getElementById("contGeGrafs");
 // Funciones
 
 const estilosInit= () => {
+  let libreriaScript = document.getElementById("https://d3js.org/d3.v4.min.js");
   initCont.classList.add("ocult");
   editCont.classList.remove("ocult");
   editCont.style.background = "transparent";
@@ -24,7 +25,7 @@ const estilosInit= () => {
   sideMenu.classList.remove("ocult");
   grafMusic.classList.add("ocult");
   contGeGrafs.classList.remove("ocult");
-  desactivarLibreria();
+  desactivarLibreria(libreriaScript);
 }
 
 // Menu acordeon
@@ -55,18 +56,16 @@ subMenuLinks.forEach(function (link) {
 
 // Activar y desactivar las librerias 
 
-let libreriaScript = document.getElementById("libreria");
-
-function activarLibreria(url) {
+function activarLibreria(url, libreriaScript) {
   if (!libreriaScript) {
     libreriaScript = document.createElement("script");
-    libreriaScript.id = "libreria";
+    libreriaScript.id = `${url}`;
     libreriaScript.src = url;
     document.body.appendChild(libreriaScript);
   }
 }
 
-function desactivarLibreria() {
+function desactivarLibreria(libreriaScript) {
   if (libreriaScript) {
     libreriaScript.parentNode.removeChild(libreriaScript);
     libreriaScript = null;
@@ -87,6 +86,7 @@ startEdit.addEventListener("click", () => {
 const ejecGrafosMusic = () => {
   grafMusic.classList.remove("ocult");
   contGeGrafs.classList.add("ocult");
-  activarLibreria("https://d3js.org/d3.v4.min.js");
+  let libreriaScript = document.getElementById("https://d3js.org/d3.v4.min.js");
+  activarLibreria("https://d3js.org/d3.v4.min.js",libreriaScript);
 }
 

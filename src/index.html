@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Graphs</title>
+	<title>Grafos</title>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js"></script>
 	<script src="./index.js"></script>
@@ -18,6 +18,10 @@
 	<script src="https://cdn.rawgit.com/teropa/Piano/fix-tone-extern/build/Piano.js"></script>
 	<!-- <script src="https://d3js.org/d3.v4.min.js" id="libreria"></script> -->
 	<script src="https://d3js.org/d3.v3.min.js"></script>
+	<!-- Para exportar en pdf -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js"></script>
+
+
 
 	<link rel="icon" href="./assets/imgs/iconSideMenu.png">
 	<link rel="stylesheet" href="./assets/css/styles.css">
@@ -35,7 +39,7 @@
 		<canvas> Your Browser Don't Support Canvas, Please Download Chrome`</canvas>
 		<div class="centered">
 			<h2>Matemáticas Discretas</h2>
-			<h1>GENEALOGÍA</h1>
+			<h1>GRAFOS</h1>
 			<h3>Presiona para empezar</h3>
 			<img src="./assets/imgs/start.png" class="imgDef" id="startEdit" alt="Start">
 		</div>
@@ -57,8 +61,18 @@
 						<img src="./assets/imgs/iconPrin.png">
 						<h2 class="textMenuTop">GRAFOS</h2> </img>
 					</li>
-					<li id="vistaInit" onclick="estilosInit(),stopAll()">
-						<a href="#"><i class="fa fa-dashboard"></i><span>Vista</span></a>
+					<li class="sub-menu">
+						<a href="javascript:void(0);"><i class="fa fa-dashboard"></i><span>Vista</span><i
+							class="arrow fa fa-angle-right pull-right"></i></a>
+
+						<ul>
+
+							<li class="subSeccion"><a href="#" id="vistaInit" onclick="estilosInit(),stopAll(),grafDig()"> Grafos Dirigidos </a>
+							</li>
+							<li class="subSeccion"><a href="#" onclick="estilosInit(),stopAll(),grafNoDig()"> Grafos No Dirigidos </a>
+							</li>
+
+						</ul>
 					</li>
 					<li class="sub-menu">
 						<a href="javascript:void(0);"><i class="fa fa-cogs"></i><span>Parametros</span><i
@@ -86,7 +100,9 @@
 						<ul>
 							<li class="subSeccion"><a href="#">Reiniciar</a>
 							</li>
-							<li class="subSeccion"><a href="#">No se que poner</a>
+							<li class="subSeccion" onclick="convertSVGToImage(), descargar()"><a href="#" >Descargar mi Grafo</a>
+							</li>
+							<li class="subSeccion"><a href="#">Descargar los valores</a>
 							</li>
 						</ul>
 					</li>
@@ -123,14 +139,37 @@
 			  </nav>	
 		</div>
 	</div>
+
+	<!-- Ventana emergente -->
+
+        <!-- Para que se habra la ventana debes oponerle a un a el id: open -->
+        <div class="modal-container" id="modal_container">
+            <div class="modal">
+                <div class="compr-PAGADA">       
+                    
+					<p>Tu descarga comenzará en breve</p>
+
+					<div class="fon-tx-pago">
+						<p>Se guardo en tu dispositivo</p>
+						<p>Da click en el boton de abajo para cerrar está ventana</p>
+					</div>
+
+					<a href="#"> <button class="btn-enviar btn-ver-plano" id="close" > Cerrar </button> </a>
+
+                </div>
+              
+            </div>
+        </div>
+
 	
 
 	<!-- Scripts -->
 
 	<script src="./assets/js/grafos.js"></script>
-	<script src="./assets/js/edicion-grafos.js"></script>
+	<script src="./assets/js/edicion-grafos.js" id="./assets/js/edicion-grafos.js"></script>
 	<script src="./assets/js/BG.js"></script>
 	<script src="./assets/js/grafosMusic.js" ></script>
+	<script src="./assets/js/ventana-descarga.js"></script>
 
 </body>
 

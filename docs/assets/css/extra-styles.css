@@ -65,3 +65,48 @@
     transition: stroke 0.5s ease-out, fill 0.5s ease-out;
   }
   
+  /* Ventana emergente */
+
+  
+.modal-container {
+  background-color: white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  pointer-events: none;
+  top:0;
+  left: 0;
+  z-index: 5;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .modal-container {
+    top: 0;
+    height: 100%;
+  }
+}
+
+.modal {
+  background-color: var(--Color-User-page);
+  border: 1px solid black;
+  width: 20%;
+  height: 60%;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 4px var(--sombras);
+          box-shadow: 0 2px 4px var(--sombras);
+  text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .modal {
+    width: 80vw;
+  }
+}

@@ -3,6 +3,8 @@ var width  = 1000,
     height = 600,
     colors = function(){ return "#FFF";};//d3.scale.category10();
 
+let line2 = "start-arrow", line1 = "end-arrow";
+
 var svg = d3.select('#containerEditSVG')
   .append('svg')
   .attr('width', width)
@@ -33,8 +35,9 @@ var force = d3.layout.force()
     .on('tick', tick)
 
 // define arrow markers for graph links
+
 svg.append('svg:defs').append('svg:marker')
-    .attr('id', 'end-arrow')
+    .attr('id', `${line1}`)
     .attr('viewBox', '0 -5 10 10')
     .attr('refX', 6)
     .attr('markerWidth', 3)
@@ -45,7 +48,7 @@ svg.append('svg:defs').append('svg:marker')
     .attr('fill', '#000');
 
 svg.append('svg:defs').append('svg:marker')
-    .attr('id', 'start-arrow')
+    .attr('id', `${line2}`)
     .attr('viewBox', '0 -5 10 10')
     .attr('refX', 4)
     .attr('markerWidth', 3)
@@ -107,16 +110,16 @@ function restart() {
 
   // update existing links
   path.classed('selected', function(d) { return d === selected_link; })
-    .style('marker-start', function(d) { return d.left ? 'url(#start-arrow)' : ''; })
-    .style('marker-end', function(d) { return d.right ? 'url(#end-arrow)' : ''; });
+    .style('marker-start', function(d) { return d.left ? `url(#${line2})` : ''; })
+    .style('marker-end', function(d) { return d.right ? `url(#${line1})` : ''; });
 
 
   // add new links
   path.enter().append('svg:path')
     .attr('class', 'link')
     .classed('selected', function(d) { return d === selected_link; })
-    .style('marker-start', function(d) { return d.left ? 'url(#start-arrow)' : ''; })
-    .style('marker-end', function(d) { return d.right ? 'url(#end-arrow)' : ''; })
+    .style('marker-start', function(d) { return d.left ? `url(#${line2})` : ''; })
+    .style('marker-end', function(d) { return d.right ? `url(#${line1})` : ''; })
     .on('mousedown', function(d) {
       if(d3.event.ctrlKey) return;
 
@@ -171,7 +174,7 @@ function restart() {
 
       // reposition drag line
       drag_line
-        .style('marker-end', 'url(#end-arrow)')
+        .style('marker-end', `url(#${line1})`)
         .classed('hidden', false)
         .attr('d', 'M' + mousedown_node.x + ',' + mousedown_node.y + 'L' + mousedown_node.x + ',' + mousedown_node.y);
 
@@ -369,3 +372,17 @@ d3.select(window)
   .on('keydown', keydown)
   .on('keyup', keyup);
 restart();
+
+
+// Events
+
+function grafNoDig() {
+  line1 = ''; line2 = '';
+  restart();
+}
+
+
+function grafDig() {
+  line1 = "end-arrow"; line2 ="start-arrow";
+  restart();
+}
